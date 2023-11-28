@@ -1,18 +1,27 @@
 import random
 
 def ask_question(question, choices, correct_answer):
-    print(question)
-    for i, choice in enumerate(choices, start=1):
-        print(f"{i}. {choice}")
+  print(question)
+  for i, choice in enumerate(choices, start=1):
+      print(f"{i}. {choice}")
 
-    user_answer = input("Your answer (enter the number): ")
-    if user_answer.isdigit():
-        user_answer = int(user_answer)
-        if 1 <= user_answer <= len(choices):
-            if choices[user_answer - 1] == correct_answer:
-                return True
-    return False
+  while True:
+      user_answer = input("Your answer is :")
+      if user_answer.isdigit():
+          user_answer = int(user_answer)
+          if user_answer in [1, 2, 3, 4]:
+              if choices[user_answer - 1] == correct_answer:
+                  return True
+              else:
+                  print("Incorrect answer. ")
+                  return False
+          else:
+              print("Invalid input. Please enter 1, 2, 3, or 4.")
+      else:
+          print("Invalid input. Please enter a number.")
 
+         
+  
 def Kenyan_trival_game():
     questions = [
         {
